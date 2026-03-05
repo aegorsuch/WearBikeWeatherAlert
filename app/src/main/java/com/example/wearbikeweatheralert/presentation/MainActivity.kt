@@ -15,6 +15,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.health.services.client.HealthServices
+import androidx.health.services.client.data.DataType
 import androidx.health.services.client.data.PassiveListenerConfig
 import androidx.lifecycle.lifecycleScope
 import androidx.wear.compose.material3.MaterialTheme
@@ -59,6 +60,7 @@ class MainActivity : ComponentActivity() {
         val passiveClient = HealthServices.getClient(this).passiveMonitoringClient
         val config = PassiveListenerConfig.builder()
             .setShouldUserActivityInfoBeRequested(true)
+            .setDataTypes(setOf(DataType.HEART_RATE_BPM, DataType.STEPS_DAILY))
             .build()
 
         lifecycleScope.launch {
