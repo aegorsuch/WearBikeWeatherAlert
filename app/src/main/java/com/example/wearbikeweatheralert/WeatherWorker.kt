@@ -38,8 +38,8 @@ class WeatherWorker(context: Context, params: WorkerParameters) : CoroutineWorke
                 apiKey = apiKey
             )
 
-            // Check the next 8 hours for any rain chance > 30%
-            val rainFound = response.hourly.take(8).any { it.pop >= 0.30 }
+            // Check the next 12 hours for any rain chance > 30%
+            val rainFound = response.hourly.take(12).any { it.pop >= 0.30 }
 
             if (rainFound) {
                 NotificationHelper.showRainAlert(applicationContext)
