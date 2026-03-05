@@ -1,6 +1,5 @@
 *.iml
 .gradle
-/local.properties
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -14,3 +13,8 @@
 .cxx
 local.properties
 secrets.properties
+.idea/
+*.jks
+*.p12
+*.keystore
+google-services.json

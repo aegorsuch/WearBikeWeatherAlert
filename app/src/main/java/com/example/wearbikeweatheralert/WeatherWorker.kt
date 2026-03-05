@@ -14,7 +14,8 @@ class WeatherWorker(context: Context, params: WorkerParameters) : CoroutineWorke
     
     @SuppressLint("MissingPermission")
     override suspend fun doWork(): Result = withContext(Dispatchers.IO) {
-        val apiKey = BuildConfig.WEATHER_API_KEY
+        // Explicitly using the full path to BuildConfig to avoid any ambiguity
+        val apiKey = com.example.wearbikeweatheralert.BuildConfig.WEATHER_API_KEY
         
         if (apiKey.isEmpty() || apiKey == "null") {
             return@withContext Result.failure()
